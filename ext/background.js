@@ -6,6 +6,11 @@ chrome.runtime.onInstalled.addListener(function() {
     chrome.declarativeContent.onPageChanged.addRules([{
       conditions: [
         new chrome.declarativeContent.PageStateMatcher({
+          pageUrl: { pathPrefix: '/docs/' },
+          css: ["img[src*='rubrik']"]
+        }),
+        new chrome.declarativeContent.PageStateMatcher({
+          pageUrl: { pathPrefix: '/web/bin/index.html' },
           css: ["img[src*='rubrik']"]
         })
       ],
